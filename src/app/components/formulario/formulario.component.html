@@ -1,0 +1,59 @@
+<div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col text-center">
+          <h3 class="text-success">{{titulo}}
+            <div class="spinner-border" style="float: right; height: 1.5rem; width: 1.5rem;" role="status" 
+              *ngIf="loanding">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </h3>
+        </div>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="crearTarjeta()">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle" 
+              [class.text-success]="form.controls.titular.status == 'VALID'"
+              [class.text-danger]="form.controls.titular.status == 'INVALID'
+              && form.controls.titular.touched == true"></i></span>
+          </div>
+          <input type="text" class="form-control form-control-lg" placeholder="Titular" formControlName="titular">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-credit-card-fill"
+              [class.text-success]="form.controls.numeroTarjeta.status == 'VALID'"
+              [class.text-danger]="form.controls.numeroTarjeta.status == 'INVALID' 
+              && form.controls.numeroTarjeta.touched == true"></i></span>
+          </div>
+          <input type="text" class="form-control form-control-lg" maxlength="16" placeholder="Numero Tarjeta" formControlName="numeroTarjeta">
+        </div>
+        <div class="row">
+          <div class="col-7">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-week-fill" 
+                  [class.text-success]="form.controls.fechaExpiracion.status == 'VALID'"
+                  [class.text-danger]="form.controls.fechaExpiracion.status == 'INVALID'
+                  && form.controls.fechaExpiracion.touched == true"></i></span>
+              </div>
+              <input type="text" class="form-control form-control-lg" maxlength="5" placeholder="MM/YY" formControlName="fechaExpiracion">
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-key-fill"
+                  [class.text-success]="form.controls.cvv.status == 'VALID'"
+                  [class.text-danger]="form.controls.cvv.status == 'INVALID'
+                  && form.controls.cvv.touched == true"></i></span>
+              </div>
+              <input type="password" class="form-control form-control-lg" maxlength="3" placeholder="CVV" formControlName="cvv">
+            </div>
+          </div>
+        </div>
+        <button [disabled]="form.invalid" type="submit" class="btn btn-lg btn-success btn-block"><i class="bi bi-save2"></i> &nbsp; Aceptar</button>
+      </form>
+    </div>
+  </div>

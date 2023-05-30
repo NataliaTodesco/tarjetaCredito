@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital@1&display=swap');
+h1{
+    /* font-family: 'Source Serif Pro', serif; */
+    font-weight: 600;
+    font-size: 60px;
+}
+h3{
+    font-family: 'Source Serif Pro', serif;
+}

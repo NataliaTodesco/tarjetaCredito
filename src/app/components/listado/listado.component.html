@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col text-center mb-1">
+                <h3 class="text-success">LISTAR TARJETA</h3>
+            </div>
+        </div>
+        <div *ngIf="tarjetas.length > 0">
+            <table class="table">
+                <tbody style="font-size: large;">
+                    <tr *ngFor="let tarjeta of tarjetas">
+                        <td>{{tarjeta.titular}}</td>
+                        <td>{{tarjeta.numeroTarjeta}}</td>
+                        <td>{{tarjeta.fechaExpiracion}}</td>
+                        <td>
+                            <i class="bi text-info bi-pencil-square" (click)="modificar(tarjeta)"></i>&nbsp;
+                            <i class="bi text-danger bi-trash" (click)="eliminar(tarjeta.id)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row" *ngIf="tarjetas.length == 0">
+            <div class="col text-center">
+                <h5>No se encontró ninguna Tarjeta de Crédito</h5>
+            </div>
+        </div>
+    </div>
+</div>
